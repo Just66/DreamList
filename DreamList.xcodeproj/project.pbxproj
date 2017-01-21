@@ -56,8 +56,10 @@
 		E69FB10D1E33A8F100B9E30F /* DreamList */ = {
 			isa = PBXGroup;
 			children = (
+				E69FB1251E33A94F00B9E30F /* Model */,
+				E69FB1241E33A94D00B9E30F /* View */,
+				E69FB1231E33A94900B9E30F /* Controller */,
 				E69FB10E1E33A8F100B9E30F /* AppDelegate.swift */,
-				E69FB1101E33A8F100B9E30F /* ViewController.swift */,
 				E69FB1121E33A8F100B9E30F /* Main.storyboard */,
 				E69FB1181E33A8F100B9E30F /* Assets.xcassets */,
 				E69FB11A1E33A8F100B9E30F /* LaunchScreen.storyboard */,
@@ -65,6 +67,28 @@
 				E69FB1151E33A8F100B9E30F /* DreamList.xcdatamodeld */,
 			);
 			path = DreamList;
+			sourceTree = "<group>";
+		};
+		E69FB1231E33A94900B9E30F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E69FB1101E33A8F100B9E30F /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E69FB1241E33A94D00B9E30F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E69FB1251E33A94F00B9E30F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
