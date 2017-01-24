@@ -91,3 +91,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+let ad = UIApplication.shared.delegate as! AppDelegate // It helps to access easier to app delegate
+let context = ad.persistentContainer.viewContext // single var for NSManagedObjectContext
+

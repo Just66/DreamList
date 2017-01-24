@@ -38,7 +38,7 @@
                                 <rect key="frame" x="10" y="112" width="394" height="624"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="120" id="WEM-Qc-0TZ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="120" id="WEM-Qc-0TZ" customClass="ItemCell" customModule="DreamList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="394" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WEM-Qc-0TZ" id="Dea-Jl-s2S">
@@ -107,6 +107,12 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.97254902119999997" green="0.047058824450000002" blue="0.074509806930000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="wishDetails" destination="Lta-Zc-Cl7" id="y2e-ld-dk2"/>
+                                            <outlet property="wishImage" destination="erN-ne-k0D" id="fV8-Je-Q6x"/>
+                                            <outlet property="wishMeans" destination="H4Z-z9-4cq" id="4CG-Gg-axp"/>
+                                            <outlet property="wishTitle" destination="MI8-DP-0ne" id="6O6-pO-b73"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -125,6 +131,10 @@
                     <navigationItem key="navigationItem" title="The List" id="Yq6-kb-FI0">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5yn-Be-uK4"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segment" destination="UdO-yN-y1R" id="ilX-Qx-akp"/>
+                        <outlet property="tableView" destination="Rf6-Fc-X8w" id="Sby-Qz-UgJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
