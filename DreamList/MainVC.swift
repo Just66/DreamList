@@ -15,13 +15,17 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segment: UISegmentedControl!
     
-    var controller = NSFetchedResultsController<Item>!.self
+    var controller = NSFetchedResultsController<Item>() //so here we don't have implictly unwrapped optional instead just brackets?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        genereateBetaData()
+        
+        attemptFetch() // brake in cese of exception
             }
 
     override func didReceiveMemoryWarning() {
@@ -30,23 +34,45 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let sections = controller.sections {
+           let sectionInfo = sections[section]
+            return sectionInfo.numberOfObjects
+        }
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ItemCell
+        configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
+        return cell
     }
+    
+    func configureCell(cell: ItemCell, indexPath: NSIndexPath) {
+     let item = controller.object(at: (indexPath as IndexPath))
+        cell.configureCell(item: item)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
+        if let sections = controller.sections {
+            return sections.count
+        }
         return 0
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
     func attemptFetch() {
+        
         
     let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
         fetchRequest.sortDescriptors = [dateSort]
         
         let controller  = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil) // see app delegate down
+        
+        self.controller = controller //don't think it's needed, but brake in case of exception
         do {
             try controller.performFetch()
         } catch {
@@ -78,7 +104,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         case.update :
             if let indexPath = indexPath {
                 let cell = tableView.cellForRow(at: indexPath) as! ItemCell
-                // TODO: update data for cell
+                configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
             }
             break
         case.move:
@@ -91,6 +117,15 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
             break
             
         }
+    }
+    
+    func genereateBetaData() {
+        let item = Item(context: context)
+        
+        item.title = "Mercedec"
+        item.price = 90000.00
+        item.details = "Soon"
+        
     }
 }
 

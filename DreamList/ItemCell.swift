@@ -23,4 +23,12 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var wishTitle: UILabel!
     @IBOutlet weak var wishMeans: UILabel!
     @IBOutlet weak var wishDetails: UILabel!
+    
+    func configureCell(item: Item) {
+        wishTitle.text = item.title
+        wishMeans.text = ("\(item.price)")
+        wishDetails.text = item.details
+        //wishImage.image = UIImage.
+        
+    }
 }
