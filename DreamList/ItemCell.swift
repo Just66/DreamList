@@ -28,7 +28,7 @@ class ItemCell: UITableViewCell {
         wishTitle.text = item.title
         wishMeans.text = ("\(item.price)")
         wishDetails.text = item.details
-        //wishImage.image = UIImage.
+        wishImage.image = item.toImage?.image as? UIImage
         
     }
 }

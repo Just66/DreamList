@@ -29,10 +29,13 @@
                                 </constraints>
                                 <segments>
                                     <segment title="Newest"/>
-                                    <segment title="Second"/>
+                                    <segment title="Price"/>
                                     <segment title="Title"/>
                                 </segments>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="segmentSort:" destination="BYZ-38-t0r" eventType="valueChanged" id="Vzh-Yf-MAb"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rf6-Fc-X8w">
                                 <rect key="frame" x="10" y="112" width="394" height="624"/>
@@ -190,6 +193,9 @@
                                     <constraint firstAttribute="width" constant="100" id="QCv-CU-I4f"/>
                                     <constraint firstAttribute="height" constant="100" id="nWK-WU-K4w"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="addImage:" destination="zlw-Et-GxY" eventType="touchUpInside" id="RSW-Jr-CBK"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Details" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wdL-gq-DGe">
                                 <rect key="frame" x="8" y="180" width="398" height="70"/>
@@ -257,6 +263,9 @@
                     <navigationItem key="navigationItem" title="Add/Edit" id="XUN-Fs-6kW">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="XqL-TA-awG">
                             <color key="tintColor" red="0.83671874999999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="deleteBut:" destination="zlw-Et-GxY" id="5dC-iJ-RRq"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -264,6 +273,7 @@
                         <outlet property="detailsDescription" destination="wdL-gq-DGe" id="9kj-3T-Z4P"/>
                         <outlet property="detailsTitle" destination="h4Y-q5-MJY" id="gfs-RP-X0k"/>
                         <outlet property="picker" destination="mZq-1b-3eW" id="p6w-to-8h8"/>
+                        <outlet property="thumgImg" destination="Vmb-IO-len" id="Uea-xT-ycW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QDN-26-41F" userLabel="First Responder" sceneMemberID="firstResponder"/>
